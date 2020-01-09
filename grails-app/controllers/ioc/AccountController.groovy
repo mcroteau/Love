@@ -239,8 +239,8 @@ class AccountController {
 
 			def accountInstance = Account.findByUsername(params.username)
 			if(accountInstance){
-				def resetUUID = UUID.randomUUID()
-				accountInstance.resetUUID = resetUUID
+				def resetUuid = UUID.randomUUID()
+				accountInstance.resetUuid = resetUuid
 				accountInstance.save(flush:true)
 				
 				def url = request.getRequestURL()
@@ -248,7 +248,7 @@ class AccountController {
 				def split = url.toString().split("/${applicationService.getContextName()}/")
 				def httpSection = split[0]
 				def resetUrl = "${httpSection}/${applicationService.getContextName()}/abcrAccount/confirm_reset?"
-				def params = "username=${accountInstance.username}&uuid=${resetUUID}"
+				def params = "username=${accountInstance.username}&uuid=${resetUuid}"
 				resetUrl+= params
 				
 				//http://localhost:9463/abcr/abcrAccount/confirm_reset?username=admin@mail.com&uuid=e4cd4247-7a92-4e5c-9c38-0de54021e3fc
@@ -305,21 +305,21 @@ class AccountController {
 
 					}else{
 						flash.message = "We were unable to reset your password, please try again."
-						redirect(action:'confirm_reset', params : [username : username, uuid : accountInstance.resetUUID ])
+						redirect(action:'confirm_reset', params : [username : username, uuid : accountInstance.resetUuid ])
 					}
 				}else{
 					flash.message = "Passwords must be at least 5 characters in length. Please try again"
-					redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUUID, username : username])
+					redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUuid, username : username])
 				}
 
 			}else{
 				flash.message = "Passwords must match. Please try again"
-				redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUUID, username : username])
+				redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUuid, username : username])
 				
 			}
 		}else{
 			flash.message = "Password cannot be blank, please try again."
-			redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUUID, username : username])
+			redirect(action: 'confirm_reset', params : [uuid : accountInstance.resetUuid, username : username])
 		}
 	}
 	

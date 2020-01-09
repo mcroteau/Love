@@ -1,3 +1,6 @@
+<% def designService = grailsApplication.classLoader.loadClass("xyz.ioc.DesignService").newInstance()%>
+
+${raw(designService.header("Reset Password"))}
 		
 <h1>Reset Password</h1>
 
@@ -20,3 +23,5 @@
 	
 	<input type="submit" value="Reset Password" class="button retro"/>
 </g:form>
+
+${raw(designService.footer())}
