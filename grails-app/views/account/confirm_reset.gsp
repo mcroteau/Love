@@ -21,7 +21,7 @@ ${raw(designService.header("Reset Password"))}
 	</div>
 	<input type="hidden" value="${accountInstance.username}" name="username"/>
 	
-	<input type="submit" value="Reset Password" class="button retro"/>
+	<input type="submit" value="Reset Password" class="btn btn-primary"/>
 </g:form>
 
 ${raw(designService.footer())}

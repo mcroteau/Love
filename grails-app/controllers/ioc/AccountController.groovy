@@ -1,5 +1,9 @@
 package ioc
 
+import java.nio.charset.StandardCharsets
+import java.net.URL
+import java.net.URLEncoder
+
 import static org.springframework.http.HttpStatus.OK
 
 import grails.plugin.springsecurity.annotation.Secured
@@ -241,20 +245,28 @@ class AccountController {
 			if(accountInstance){
 				def resetUuid = UUID.randomUUID()
 				accountInstance.resetUuid = resetUuid
+
 				accountInstance.save(flush:true)
 				
 				def url = request.getRequestURL()
 				
 				def split = url.toString().split("/${applicationService.getContextName()}/")
 				def httpSection = split[0]
-				def resetUrl = "${httpSection}/${applicationService.getContextName()}/abcrAccount/confirm_reset?"
-				def params = "username=${accountInstance.username}&uuid=${resetUuid}"
-				resetUrl+= params
+
+				def baseUrl = "${httpSection}/${applicationService.getContextName()}/account/confirm_reset?"
+				def params = "username=" + URLEncoder.encode(accountInstance.username, "UTF-8") + "&uuid=${accountInstance.resetUuid}"
+
+				def resetUrl = baseUrl + params
 				
-				//http://localhost:9463/abcr/abcrAccount/confirm_reset?username=admin@mail.com&uuid=e4cd4247-7a92-4e5c-9c38-0de54021e3fc
+				//http://localhost:9463/abcr/account/confirm_reset?username=admin@mail.com&uuid=e4cd4247-7a92-4e5c-9c38-0de54021e3fc
 				println "reset url " + resetUrl
 				
-				sendResetPasswordEmail(accountInstance, resetUrl)
+				try{
+					sendResetPasswordEmail(accountInstance, resetUrl)
+				}catch(Exception e){
+					e.printStackTrace()
+				}
+
 			}else{
 				flash.message = "Account not found with following username : ${params.username}"
 				redirect(action: "forgot")
@@ -269,11 +281,14 @@ class AccountController {
 
 	@Secured([ApplicationConstants.PERMIT_ALL])
 	def confirm_reset(){
-		def accountInstance = Account.findByUsernameAndResetUUID(params.username, params.uuid)
+		println "params : ${params}"
+		def username = params.username
+		def accountInstance = Account.findByUsername(username)
 		
 		if(!accountInstance){
-			flash.message = "Something went wrong, please try again."
-			redirect(action: 'forgot')
+			flash.message = "Will you contact support. We were unable to find reset your password."
+			redirect(action: "forgot")
+			return
 		}	
 
 		[accountInstance: accountInstance]	
@@ -335,6 +350,7 @@ class AccountController {
 		}
 		[accountInstance: accountInstance]
 	}
+
 	
 	@Secured([ApplicationConstants.ROLE_ADMIN])
 	def update_password(){
@@ -399,12 +415,12 @@ class AccountController {
 			//def toAddress = accountInstance.username
 			//TODO:change
 			def toAddress = "croteau.mike@gmail.com"
-			def subject = "${applicationService.getCompanyName()}: Reset password"
+			def subject = "${applicationService.getSiteName()}: Reset password"
 
 			
 			File templateFile = grailsAttributes.getApplicationContext().getResource(  "/templates/email/password_reset.html").getFile();
 
-			def binding = [ "companyName" : applicationService.getCompanyName(),
+			def binding = [ "companyName" : applicationService.getSiteName(),
 				 			"supportEmail" : applicationService.getSupportEmailAddress(),
 							"resetUrl": resetUrl ]
 			def engine = new SimpleTemplateEngine()

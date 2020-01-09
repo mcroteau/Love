@@ -21,7 +21,7 @@
 	<div id="login-container">
 
 		<g:if test="${flash.message}">
-			<div class="alert alert-info">${flash.message}</div>
+			<div class="notify">${flash.message}</div>
 		</g:if>
 			
 		<g:if test="${applicationService.getSiteName()}">	
