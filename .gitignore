@@ -1,0 +1,27 @@
+Thumbs.db
+CHANGELOG.md
+.gradle
+.classpath
+.project
+.settings
+.launch
+.tmproj
+.idea
+.gradle
+*.iml
+/build
+Todo.md
+Notes.md
+
+# logs
+stacktrace.log
+/test/reports
+
+/target/
+
+# project release file
+*.war
+
+# project settings
+src/main/webapp/settings/settings.properties
+
