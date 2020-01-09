@@ -5,7 +5,7 @@
 
 Love is an open source charity software package that allows people and organizations to setup a custommized site within minutes. You can manage content, and donations. Love can accept individual donations as well as monthly contributions. 
 
-Love is Open Source and leverages everything Open Source to get you operational.
+Love is Open Source and leverages everything Open Source to get you up and running.
 
 * Linux
 * Java

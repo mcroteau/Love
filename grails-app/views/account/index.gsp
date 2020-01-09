@@ -12,7 +12,7 @@
 			<br class="clear"/>
 			
 			<g:if test="${!admin}">
-				<h1 class="left-float">${accountInstanceTotal} Accounts</h1>
+				<h1 class="left-float">${accountInstanceTotal} Donor Accounts</h1>
 			</g:if>
 			<g:else>
 				<h1 class="left-float">${accountInstanceTotal} Admin(s)</h1>
@@ -43,11 +43,11 @@
 
 				<g:if test="${admin}">
 			  	  	<li class="active"><g:link uri="/account?admin=true" class="">Admin Accounts</g:link></li>
-			  		<li class="inactive"><g:link uri="/account?admin=false" class="">Accounts</g:link></li>
+			  		<li class="inactive"><g:link uri="/account?admin=false" class="">Donor Accounts</g:link></li>
 				</g:if>
 				<g:else>
 			  	  	<li class="inactive"><g:link uri="/account?admin=true" class="">Admin Accounts</g:link></li>
-			  		<li class="active"><g:link uri="/account?admin=false" class="">Accounts</g:link></li>
+			  		<li class="active"><g:link uri="/account?admin=false" class="">Donor Accounts</g:link></li>
 				</g:else>
 			</ul>
 			

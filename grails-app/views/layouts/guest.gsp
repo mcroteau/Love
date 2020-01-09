@@ -15,69 +15,52 @@
 
 	<link rel="stylesheet" href="${resource(dir:'bootstrap', file:'responsive.css')}" />
 
-	<style type="text/css">
-		html, body, div, span, applet, object, iframe,
-		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-		a, abbr, acronym, address, big, cite, code,
-		del, dfn, em, img, ins, kbd, q, s, samp,
-		small, strike, strong, sub, sup, tt, var,
-		b, u, i, center,
-		dl, dt, dd, ol, ul, li,
-		fieldset, form, label, legend,
-		table, caption, tbody, tfoot, thead, tr, th, td,
-		article, aside, canvas, details, embed, 
-		figure, figcaption, footer, header, hgroup, 
-		menu, nav, output, ruby, section, summary,
-		time, mark, audio, video {
-			margin: 0;
-			padding: 0;
-			border: 0;
-			font-size: 100%;
-			font: inherit;
-			vertical-align: baseline;
-		}
-		/* HTML5 display-role reset for older browsers */
-		article, aside, details, figcaption, figure, 
-		footer, header, hgroup, menu, nav, section {
-			display: block;
-		}
-		body {
-			line-height: 1;
-		}
-		ol, ul {
-			list-style: none;
-		}
-		blockquote, q {
-			quotes: none;
-		}
-		blockquote:before, blockquote:after,
-		q:before, q:after {
-			content: '';
-			content: none;
-		}
-		table {
-			border-collapse: collapse;
-			border-spacing: 0;
-		}
-
-
-	</style>
-
-	</style>
-	
+	<link rel="stylesheet" href="${resource(dir:'css', file:'admin.css')}" />
 
 	<g:layoutHead/>
 	
 </head>
-<body>
+<body style="background:#d5e2e8;background:#dee3e5;">
 	
-<div class="container">
-	<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6"><g:layoutBody/></div>
-		<div class="col-md-3"></div>
+	<%
+		def account = commonUtilities.getAuthenticatedAccount()
+	%>	
+
+
+	<div id="outer-container" class="container">
+		
+		<div class="row">
+			
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+
+				<div style="background:#f5fafd;background:#eff2f4;background:#fff;padding:20px 23px 100px 23px;margin-top:10px;" class="shadow-lg" >
+					<div id="header" style="text-align:center">
+
+			    		<g:link uri="/accounts" elementId="logo-logo" style="float:none !important;">
+			    			&hearts;
+			    			<!--愛--> <br/>
+							<span style="font-size:19px">Love<span>
+
+			    		</g:link>
+						<span class="tiny-tiny" style="display:block;margin-top:20px;">[open source<br/> charity software]</span>
+
+						
+						<br class="clear"/>
+
+					</div>
+
+					<div id="container">
+						<g:layoutBody/>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
 	</div>
-</div>
+
+
 
 
 	<div style="margin-top:221px; text-align:center"></div>
