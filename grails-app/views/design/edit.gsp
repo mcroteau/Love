@@ -1,3 +1,5 @@
+<% def applicationService = grailsApplication.classLoader.loadClass('xyz.ioc.ApplicationService').newInstance()%>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -36,7 +38,7 @@
 
 
 		
-		<g:form controller="design" action="update" id="${designInstance?.id}">
+		<form action="/${applicationService.getContextName()}/design/update/${designInstance?.id}" id="design-form" method="post">
 			
 			<div class="form-group" style="margin-top:30px">
 				
@@ -137,7 +139,7 @@
 				<br class="clear"/>
 			</div>
 			
-		</g:form>
+		</form>
 
 
 		<div style="margin-top:20px">
@@ -152,12 +154,20 @@
 		
 <script type="text/javascript">
 $(document).ready(function(){
-	var $designForm = $("#designForm");
+	var $designForm = $("#design-form");
 	
 	$("#design-textarea").allowTabChar();
 	$("#css-textarea").allowTabChar();
 	$("#javascript-textarea").allowTabChar();
 	
+	$(window).keydown(function(event){
+        if((event.ctrlKey || event.metaKey) && event.which == 83) {
+			console.log("save...")
+            event.preventDefault();
+            $designForm.submit()
+            return false;
+        }
+	})
 });
 </script>		
 		

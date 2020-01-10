@@ -1,27 +1,16 @@
-@font-face { 
-	font-family: Roboto-Regular; 
-	src: url("${resource(dir:'fonts/Roboto-Regular.ttf')}"); 
-} 
-@font-face { 
-	font-family: Roboto-Bold;
-	src: url("${resource(dir:'fonts/Roboto-Bold.ttf')}"); 
+body{
+	background:#d5e2e8;
+	background:#dee3e5;
 }
-@font-face { 
-	font-family: Roboto-Thin; 
-	src: url("${resource(dir:'fonts/Roboto-Thin.ttf')}"); 
+
+#content-container{
+	background:#f5fafd;
+	background:#eff2f4;
+	background:#fff;
+	padding:20px 23px 100px 23px;
+	margin-top:10px;
 }
-@font-face { 
-	font-family: Roboto-Light; 
-	src: url("${resource(dir:'fonts/Roboto-Light.ttf')}"); 
-}
-@font-face { 
-	font-family: Roboto-Black; 
-	src: url("${resource(dir:'fonts/Roboto-Black.ttf')}"); 
-}
-@font-face { 
-	font-family: Roboto-Medium; 
-	src: url("${resource(dir:'fonts/Roboto-Medium.ttf')}"); 
-}
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126

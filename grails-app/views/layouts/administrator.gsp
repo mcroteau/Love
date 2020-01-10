@@ -22,14 +22,36 @@
 	<link rel="stylesheet" href="${resource(dir:'css', file:'admin.css')}" />
 
 	<style type="text/css">
-
+	@font-face { 
+		font-family: Roboto-Regular; 
+		src: url("${resource(dir:'fonts/Roboto-Regular.ttf')}"); 
+	} 
+	@font-face { 
+		font-family: Roboto-Bold;
+		src: url("${resource(dir:'fonts/Roboto-Bold.ttf')}"); 
+	}
+	@font-face { 
+		font-family: Roboto-Thin; 
+		src: url("${resource(dir:'fonts/Roboto-Thin.ttf')}"); 
+	}
+	@font-face { 
+		font-family: Roboto-Light; 
+		src: url("${resource(dir:'fonts/Roboto-Light.ttf')}"); 
+	}
+	@font-face { 
+		font-family: Roboto-Black; 
+		src: url("${resource(dir:'fonts/Roboto-Black.ttf')}"); 
+	}
+	@font-face { 
+		font-family: Roboto-Medium; 
+		src: url("${resource(dir:'fonts/Roboto-Medium.ttf')}"); 
+	}
 	</style>
-	
 
 	<g:layoutHead/>
-	
+
 </head>
-<body style="background:#d5e2e8;background:#dee3e5;">
+<body>
 	
 	<%
 		def account = commonUtilities.getAuthenticatedAccount()
@@ -43,7 +65,7 @@
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 
-				<div style="background:#f5fafd;background:#eff2f4;background:#fff;padding:20px 23px 100px 23px;margin-top:10px;" class="shadow-lg" >
+				<div id="content-container" class="shadow-lg" >
 					<div id="header">
 
 			    		<g:link uri="/accounts" elementId="logo-logo">
