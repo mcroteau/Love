@@ -32,7 +32,7 @@ ${raw(designService.header("My Account"))}
 
 
 		<g:if test="${!accountInstance.donationSubscription}">
-			<p class="lead"><g:link uri="/donate" style="margin-top:39px">Make Monthly Donation</g:link></p>
+			<p class="lead"><g:link uri="/donate" style="margin-top:39px">Enroll in Monthly Donation</g:link></p>
 		</g:if>
 
 
