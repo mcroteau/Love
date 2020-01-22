@@ -3,9 +3,7 @@
 
 ${raw(designService.header("Signin"))}
 
-	
 	<h1>${applicationService.getSiteName()}</h1>
-
 
 	<g:if test="${flash.message}">
 		<div class="alert alert-info">${flash.message}</div>

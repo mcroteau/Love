@@ -9,6 +9,8 @@ grails.plugin.springsecurity.authority.className               = 'xyz.ioc.Role'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'xyz.ioc.AccountRole'
 grails.plugin.springsecurity.shiro.permissionDomainClassName   = 'xyz.ioc.Permission'
 
+grails.plugin.springsecurity.failureHandler.defaultTargetUrl = '/admin'
+
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
