@@ -24,7 +24,7 @@ If you are a developer, here is what you need to get it running locally:
 * Install grails 3.3.9
 * `cp src/main/webapp/settings/settings.properties.example -> src/main/webapp/settings.properties`
 * Update `src/main/webapp/settings/settings.properties` with configurations for Mail & Stripe
-* cd into **Love/**
+* cd into `Love/`
 * run `grails run-app`
 * Browse `http://localhost:9264/ioc/admin`  for administration
 * Browse to `http://localhost:9264/ioc` to see home page content
