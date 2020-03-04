@@ -27,6 +27,6 @@ If you are a developer, here is what you need to get it running locally:
 * cd into `Love/`
 * run `grails run-app`
 * Browse `http://localhost:9264/ioc/admin`  for administration
-* Browse to `http://localhost:9264/ioc` for home page content
+* Browse to `http://localhost:9264/ioc` for home page and web front
 
 
