@@ -17,6 +17,9 @@
 			background:#efefef;
 			border:solid 1px #ddd;
 		}
+		#braintreePaymentSettings{
+			display:none;
+		}
 	</style>
 		
 	<link rel="stylesheet" href="${resource(dir:'js/lib/ckeditor/4.4.0', file:'contents.css')}" />	

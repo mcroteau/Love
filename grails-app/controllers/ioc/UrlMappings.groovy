@@ -9,6 +9,11 @@ class UrlMappings {
             }
         }
 
+        "/admin"{
+            controller = "donations"
+            action = "index"
+        }
+
         "/"{ 
             controller = "page"
             action = "home"

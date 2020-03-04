@@ -24,7 +24,6 @@ class PageController {
 
  	@Secured(['permitAll'])
 	def ref(String title){
-		println "t ${params?.title} -> ${title}"
 		def t = java.net.URLDecoder.decode(params.title, "UTF-8");
 		def pageInstance = Page.findByTitle(t)
 		if(!pageInstance){
@@ -88,7 +87,6 @@ class PageController {
 	
  	@Secured(['ROLE_ADMIN'])
 	def list(Integer max) {
-		println ">>> list"
     	params.max = Math.min(max ?: 10, 100)
     	[pageInstanceList: Page.list(params), pageInstanceTotal: Page.count()]
 	}
