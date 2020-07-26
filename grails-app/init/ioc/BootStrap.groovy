@@ -29,7 +29,7 @@ class BootStrap {
 	def init = { servletContext ->
 
 		println "***********************************************"
-		println "*******        愛 Love Bootstrap        *******"
+		println "*******        ♥  Love Bootstrap        *******"
 		println "***********************************************"
 		createRoles()
 		createAdministrator()

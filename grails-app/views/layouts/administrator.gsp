@@ -69,8 +69,7 @@
 					<div id="header">
 
 			    		<g:link uri="/accounts" elementId="logo-logo">
-			    			&hearts;
-			    			<!--愛--> <br/>
+			    			&hearts;<br/>
 							<span style="font-size:19px">Love<span>
 
 			    		</g:link>

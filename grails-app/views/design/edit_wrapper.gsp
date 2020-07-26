@@ -1,4 +1,3 @@
-<%@ page import="io.pelican.Catalog" %>
 <!DOCTYPE html>
 <html>
 	<head>
