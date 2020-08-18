@@ -110,7 +110,7 @@ environments:
             #dbCreate: update
             #driverClassName: "com.mysql.jdbc.Driver"
             #dialect: "org.hibernate.dialect.MySQLDialect"
-            #url: "jdbc:mysql://127.0.0.1:3306/byodo"
+            #url: "jdbc:mysql://127.0.0.1:3306/equality"
             #username: ""
             #password: ""
     test:
@@ -122,7 +122,7 @@ environments:
             dbCreate: update
             driverClassName: "com.mysql.jdbc.Driver"
             dialect: "org.hibernate.dialect.MySQLDialect"
-            url: "jdbc:mysql://localhost:3306/byodo"
+            url: "jdbc:mysql://localhost:3306/equality"
             username: ""
             password: ""
             properties:
